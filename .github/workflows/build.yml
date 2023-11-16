@@ -7,7 +7,7 @@ on:
 jobs:
     build:
         name: Build NestJS using package.json
-        runs-on: ununtu-latest
+        runs-on: ubuntu-latest
         steps: 
             - name: Checkout application code
               uses: actions/checkout@v3
