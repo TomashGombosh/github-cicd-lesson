@@ -22,3 +22,4 @@ jobs:
               run: |
                 npm run test:cov
                 npm run test:e2e
+                exit 1
