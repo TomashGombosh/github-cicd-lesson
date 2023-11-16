@@ -1,12 +1,12 @@
-name: Build NestJS
+name: Lets run tests
 
 on:
     pull_request:
         branches: [ main ]
 
 jobs:
-    build:
-        name: Build NestJS using package.json
+    test:
+        name: Run Application tests
         runs-on: ubuntu-latest
         steps: 
             - name: Checkout application code
@@ -18,10 +18,7 @@ jobs:
                 cache: "npm"
             - name: Install dependencies    
               run: npm install
-            - name: Build application
-              run: npm run build
-            - name: Upload build artifacts
-              uses: actions/upload-artifact@v3
-              with: 
-                name: build-artifact
-                path: dist
+            - name: Compile project
+              run: |
+                npm run test:cov
+                npm run test:e2e
